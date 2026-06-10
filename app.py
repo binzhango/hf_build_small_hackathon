@@ -10,8 +10,8 @@ import gradio as gr
 
 MODEL_ID = os.getenv("MODEL_ID", "openbmb/MiniCPM-V-4.6")
 DEFAULT_PROMPT = (
-    "Describe the visual content. Include key objects, text, layout, and any "
-    "important actions or context."
+    "Look at this food image and suggest a practical chef-style recipe. "
+    "Include likely ingredients, prep steps, cooking method, timing, and tips."
 )
 
 _ESCAPED_NEWLINE_PATTERN = re.compile(
@@ -124,13 +124,13 @@ CSS = """
 
 
 with gr.Blocks(
-    title="MiniCPM-V 4.6 Hackathon Demo",
+    title="Recipe Lens Chef",
     css=CSS,
     fill_height=True,
 ) as demo:
     gr.Markdown(
-        "# MiniCPM-V 4.6 Hackathon Demo\n"
-        "Upload an image or video, ask a visual question, and run inference with "
+        "# Recipe Lens Chef\n"
+        "Upload a food image or cooking video, ask what to make, and run inference with "
         f"`{MODEL_ID}`.",
         elem_classes=["header"],
     )
@@ -197,9 +197,9 @@ with gr.Blocks(
 
     gr.Examples(
         examples=[
-            [None, None, "Extract and summarize any visible text.", "16x", 512, 36, 64, 1],
-            [None, None, "What is unusual or noteworthy in this scene?", "4x", 512, 36, 64, 1],
-            [None, None, "Describe the video timeline and main actions.", "16x", 1024, 36, 128, 1],
+            [None, None, "Create a recipe from this dish and explain how to cook it.", "16x", 512, 36, 64, 1],
+            [None, None, "Identify the ingredients you can see and suggest a weeknight dinner recipe.", "4x", 512, 36, 64, 1],
+            [None, None, "Watch the cooking steps and summarize the recipe timeline.", "16x", 1024, 36, 128, 1],
         ],
         inputs=[
             image_input,

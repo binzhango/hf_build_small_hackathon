@@ -1,14 +1,15 @@
 ---
-title: MiniCPM-V 4.6 Hackathon Demo
+title: Recipe Lens Chef
 sdk: gradio
 python_version: "3.12"
 suggested_hardware: t4-small
 app_file: app.py
 ---
 
-# MiniCPM-V 4.6 Hackathon Demo
+# Recipe Lens Chef
 
-This repository contains a minimal Hugging Face Space for inference with
+This repository contains a minimal Hugging Face Space for turning food photos
+into chef-style recipe ideas and cooking guidance with
 [`openbmb/MiniCPM-V-4.6`](https://huggingface.co/openbmb/MiniCPM-V-4.6).
 
 The app is intentionally inference-only. It does not include fine-tuning,
