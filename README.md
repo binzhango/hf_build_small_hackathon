@@ -30,5 +30,21 @@ MODEL_ID=openbmb/MiniCPM-V-4.6 uv run python app.py
 
 ## Space Deployment
 
+Deployments are owned by GitHub Actions. Pushes to `main` run
+`.github/workflows/deploy-space.yml`, which uploads the checked-out GitHub
+commit to the Hugging Face Space.
+
+Required GitHub secret:
+
+```bash
+HF_TOKEN
+```
+
+Optional GitHub variable:
+
+```bash
+HF_SPACE_ID=binzhango/hf-build-small-hackathon
+```
+
 The Space reads dependencies from `requirements.txt` and starts `app.py` with
 Gradio. Python 3.12 is requested in this README's Space metadata.
