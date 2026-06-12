@@ -78,7 +78,6 @@ def generate_response(
     processor, model = load_model()
 
     template_kwargs: dict[str, Any] = {
-        "messages": messages,
         "tokenize": True,
         "add_generation_prompt": True,
         "return_dict": True,
@@ -95,7 +94,7 @@ def generate_response(
             }
         )
 
-    inputs = processor.apply_chat_template(**template_kwargs).to(model.device)
+    inputs = processor.apply_chat_template(messages, **template_kwargs).to(model.device)
 
     with torch.inference_mode():
         generated_ids = model.generate(
